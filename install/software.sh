@@ -33,3 +33,9 @@ sudo apt install meld
 
 # nvm
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
+
+# typora markdown editor
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE
+sudo add-apt-repository 'deb https://typora.io ./linux/'
+sudo apt-get update
+sudo apt-get install typora
