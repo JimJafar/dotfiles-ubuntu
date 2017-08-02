@@ -101,5 +101,9 @@ alias cdmx="cd ~/code/maritimexchange/"
 alias mux=tmuxinator
 alias muxmx="mux start mx"
 alias muxkillmx="tmux kill-session -t mx"
+alias sqhi="sudo cp /etc/pulse/daemon-hi.conf /etc/pulse/daemon.conf && pulseaudio -k && pulseaudio --start"
+alias sqdefault="sudo cp /etc/pulse/daemon-default.conf /etc/pulse/daemon.conf && pulseaudio -k && pulseaudio --start"
+alias c="tput reset"
+alias fixAltDirectionKeys="sudo kbd_mode -s"
 
 source /etc/bash_completion.d/climate_completion

@@ -39,3 +39,11 @@ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE
 sudo add-apt-repository 'deb https://typora.io ./linux/'
 sudo apt-get update
 sudo apt-get install typora
+
+# get rid of the irritating CTRL+SHIFT+U shortcut for entering unicode characters
+sudo -s
+echo -e '[desktop/gnome/interface]\nshow_unicode_menu=false' > /etc/dconf/db/ibus.d/01-remove-ctrl-shift-u
+dconf update
+exit
+$ killall ibus-engine-simple
+$ ibus-engine-simple
