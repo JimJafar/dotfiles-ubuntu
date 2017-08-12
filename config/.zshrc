@@ -105,5 +105,6 @@ alias sqhi="sudo cp /etc/pulse/daemon-hi.conf /etc/pulse/daemon.conf && pulseaud
 alias sqdefault="sudo cp /etc/pulse/daemon-default.conf /etc/pulse/daemon.conf && pulseaudio -k && pulseaudio --start"
 alias c="tput reset"
 alias fixAltDirectionKeys="sudo kbd_mode -s"
+alias disconnectWiFi="nmcli d disconnect wlp2s0"
 
 source /etc/bash_completion.d/climate_completion

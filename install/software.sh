@@ -45,5 +45,9 @@ sudo -s
 echo -e '[desktop/gnome/interface]\nshow_unicode_menu=false' > /etc/dconf/db/ibus.d/01-remove-ctrl-shift-u
 dconf update
 exit
-$ killall ibus-engine-simple
-$ ibus-engine-simple
+killall ibus-engine-simple
+ibus-engine-simple
+
+# Enable Ledger Nano S: http://support.ledgerwallet.com/knowledge_base/topics/ledger-wallet-is-not-recognized-on-linux
+wget -q -O - https://www.ledgerwallet.com/support/add_udev_rules.sh | sudo bash
+
