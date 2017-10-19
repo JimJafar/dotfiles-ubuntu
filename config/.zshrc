@@ -106,5 +106,6 @@ alias sqdefault="sudo cp /etc/pulse/daemon-default.conf /etc/pulse/daemon.conf &
 alias c="tput reset"
 alias fixAltDirectionKeys="sudo kbd_mode -s"
 alias disconnectWiFi="nmcli d disconnect wlp2s0"
+alias pixeluvo="cd /home/jim/.local/share/Steam/steamapps/common/Pixeluvo/ && ./pixeluvo"
 
 source /etc/bash_completion.d/climate_completion
