@@ -14,3 +14,8 @@ if [ -f ~/.zshrc ]; then
   mv ~/.zshrc ~/.zshrc-pre-dotfiles-bak
 fi
 ln -s ~/dotfiles-ubuntu/config/.zshrc ~/.zshrc
+
+if [ -f ~/.motd.d ]; then
+  mv ~/.zshrc ~/.motd.d-pre-dotfiles-bak
+fi
+ln -s ~/dotfiles-ubuntu/config/.motd.d ~/.motd.d

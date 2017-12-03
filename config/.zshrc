@@ -101,6 +101,7 @@ alias cdmx="cd ~/code/maritimexchange/"
 alias mux=tmuxinator
 alias muxmx="mux start mx"
 alias muxkillmx="tmux kill-session -t mx"
+alias mx="terminator --layout mx"
 alias sqhi="sudo cp /etc/pulse/daemon-hi.conf /etc/pulse/daemon.conf && pulseaudio -k && pulseaudio --start"
 alias sqdefault="sudo cp /etc/pulse/daemon-default.conf /etc/pulse/daemon.conf && pulseaudio -k && pulseaudio --start"
 alias c="tput reset"
@@ -108,4 +109,30 @@ alias fixAltDirectionKeys="sudo kbd_mode -s"
 alias disconnectWiFi="nmcli d disconnect wlp2s0"
 alias pixeluvo="cd /home/jim/.local/share/Steam/steamapps/common/Pixeluvo/ && ./pixeluvo"
 
+# BASH completion
 source /etc/bash_completion.d/climate_completion
+
+# Script to allow opening terminator with continuous commands
+# Enter custom commands in ~/.config/terminator/config like this:
+# env INIT_CMD="cd bla; npm start" zsh
+echo $INIT_CMD
+if [ ! -z "$INIT_CMD" ]; then
+    OLD_IFS=$IFS
+    setopt shwordsplit
+    IFS=';'
+    for cmd in $INIT_CMD; do
+        print -s "$cmd"  # add to history
+        eval $cmd
+    done
+    unset INIT_CMD
+    IFS=$OLD_IFS
+fi
+
+# MOTD
+if [[ -d ~/.motd.d ]]; then
+    for motd in ~/.motd.d/*; do
+      if [ ! -d "$motd" ]; then
+        zsh $motd
+      fi
+    done
+fi
