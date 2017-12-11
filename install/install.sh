@@ -19,3 +19,5 @@ if [ -f ~/.motd.d ]; then
   mv ~/.zshrc ~/.motd.d-pre-dotfiles-bak
 fi
 ln -s ~/dotfiles-ubuntu/config/.motd.d ~/.motd.d
+
+sh ~/dotfiles-ubuntu/install/templates.sh
