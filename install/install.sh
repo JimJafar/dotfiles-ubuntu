@@ -20,4 +20,9 @@ if [ -f ~/.motd.d ]; then
 fi
 ln -s ~/dotfiles-ubuntu/config/.motd.d ~/.motd.d
 
+if [ -f ~/.config/terminator/config ]; then
+  mv ~/.config/terminator/config ~/.config/terminator/config.pre-dotfiles-bak
+fi
+ln -s ~/dotfiles-ubuntu/config/.terminator ~/.config/terminator/config
+
 sh ~/dotfiles-ubuntu/install/templates.sh
