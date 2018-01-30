@@ -52,7 +52,6 @@
     background_type = transparent
     cursor_color = "#aaaaaa"
     scrollback_infinite = True
-    use_theme_colors = True
   [[mxbe]]
     background_darkness = 0.96
     background_type = transparent
@@ -60,7 +59,6 @@
     custom_command = env INIT_CMD="cd ~/code/maritimexchange-backend; npm start" zsh
     scrollback_infinite = True
     use_custom_command = True
-    use_theme_colors = True
   [[mxfe]]
     background_darkness = 0.96
     background_type = transparent
@@ -69,4 +67,3 @@
     exit_action = hold
     scrollback_infinite = True
     use_custom_command = True
-    use_theme_colors = True

@@ -41,6 +41,16 @@ ln -s ~/dotfiles-ubuntu/config/.terminator ~/.config/terminator/config
 
 sh ~/dotfiles-ubuntu/install/templates.sh
 
+echo "i3"
+
+if [ ! -d ~/.config/i3 ]; then
+  mkdir ~/.config/i3
+fi
+if [ -f ~/.config/i3/config ]; then
+  mv ~/.config/i3/config ~/.config/i3/config.pre-dotfiles-bak
+fi
+ln -s ~/dotfiles-ubuntu/config/i3/config ~/.config/i3
+
 echo "changing default shell to zsh"
 sudo chsh -s /bin/zsh
 sudo chsh -s /bin/zsh jim

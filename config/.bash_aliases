@@ -4,3 +4,4 @@ alias ethminesolo="ethminer --farm-recheck 200 -G -S asia1.ethpool.org:3333 -O e
 alias ethmine="ethminer --farm-recheck 200 -G -S asia1.ethermine.org:4444 -FS us1.ethermine.org:4444 -O ef6820056c86bab68930d8ece59595c8f08304e4.evilJimXPS15"
 alias ethchecksolo="google-chrome http://ethpool.org/miners/ef6820056c86bab68930d8ece59595c8f08304e4"
 alias ethcheck="google-chrome https://ethermine.org/miners/ef6820056c86bab68930d8ece59595c8f08304e4"
+alias dropboxMenuFix="~/dropboxMenuFix.sh"
