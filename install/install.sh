@@ -51,6 +51,10 @@ if [ -f ~/.config/i3/config ]; then
 fi
 ln -s ~/dotfiles-ubuntu/config/i3/config ~/.config/i3
 
+if [ ! -f ~/.config/i3/config ]; then
+  ln -s ~/dotfiles-ubuntu/scripts/lock-i3.sh ~/lock-i3.sh
+fi
+
 echo "changing default shell to zsh"
 sudo chsh -s /bin/zsh
 sudo chsh -s /bin/zsh jim

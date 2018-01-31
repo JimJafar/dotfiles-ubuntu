@@ -13,7 +13,8 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+# font
+font pango: System San Francisco Display 12
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -25,6 +26,9 @@ font pango:monospace 8
 # clear in small sizes. However, its unicode glyph coverage is limited, the old
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
+
+# Disable mouse follow focus
+focus_follows_mouse no
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -43,10 +47,10 @@ bindsym $mod+d exec dmenu_run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+#bindsym $mod+j focus left
+#bindsym $mod+k focus down
+#bindsym $mod+l focus up
+#bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -65,6 +69,9 @@ bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
+
+# move workspace to next output (screen)
+bindsym $mod+Ctrl+Right move workspace to output right
 
 # split in horizontal orientation
 bindsym $mod+h split h
@@ -149,13 +156,46 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# lock the machine
+bindsym $mod+l exec "sh ~/lock-i3.sh"
+
+# colours - taken from Arc Dark
+
+set $bg-color            #2f343f
+set $inactive-bg-color   #2f343f
+set $text-color          #f3f4f5
+set $inactive-text-color #676E7D
+set $urgent-bg-color     #E53935
+
+# window colors
+#                       border              background         text                 indicator
+client.focused          $bg-color           $bg-color          $text-color          #00ff00
+client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
+client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
         status_command i3status
         tray_output primary
         position top
+	colors {
+		background $bg-color
+		separator #757575
+		#                  border             background         text
+		focused_workspace  $bg-color          $bg-color          $text-color
+		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+	}
 }
 
-# Reverse scroll direction
-exec --no-startup-id synclient NaturalScrolling=1 VertScrollDelta=-113
+# Set bg
+exec --no-startup-id feh --bg-scale Dropbox/images/Wallpaper/1080p/pixel_art/62902060-pixel-art-wallpapers.png
+
+# Set natural scrolling on trackpad
+exec --no-startup-id xinput set-prop `xinput list|grep Touchpad|grep id=|cut -f 2|cut -f 2 -d =` 286 1
+
+# Set natural scrolling on mouse
+exec --no-startup-id xinput set-prop `xinput list|grep mouse|grep -m 1 id=|cut -f 2|cut -f 2 -d =` 286 1
+
