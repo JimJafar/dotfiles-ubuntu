@@ -51,9 +51,26 @@ if [ -f ~/.config/i3/config ]; then
 fi
 ln -s ~/dotfiles-ubuntu/config/i3/config ~/.config/i3
 
+if [ -f ~/.config/i3/i3blocks.conf ]; then
+  mv ~/.config/i3/i3blocks.conf ~/.config/i3/i3blocks.conf.pre-dotfiles-bak
+fi
+ln -s ~/dotfiles-ubuntu/config/i3/i3blocks.conf ~/.config/i3
+
 if [ ! -f ~/.config/i3/config ]; then
   ln -s ~/dotfiles-ubuntu/scripts/lock-i3.sh ~/lock-i3.sh
 fi
+
+# gtk
+
+if [ -f ~/.gtkrc-2.0 ]; then
+  mv ~/.gtkrc-2.0 ~/.gtkrc-2.0.pre-dotfiles-bak
+fi
+ln -s ~/dotfiles-ubuntu/config/.gtkrc-2.0 ~/.gtkrc-2.0
+
+if [ -f ~/.config/gtk-3.0/settings.ini ]; then
+  mv ~/.config/gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini.pre-dotfiles-bak
+fi
+ln -s ~/dotfiles-ubuntu/config/gtk-3.0/settings.ini ~/.config/gtk-3.0/
 
 echo "changing default shell to zsh"
 sudo chsh -s /bin/zsh

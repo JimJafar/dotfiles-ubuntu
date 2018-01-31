@@ -51,3 +51,11 @@ ibus-engine-simple
 # Enable Ledger Nano S: http://support.ledgerwallet.com/knowledge_base/topics/ledger-wallet-is-not-recognized-on-linux
 wget -q -O - https://www.ledgerwallet.com/support/add_udev_rules.sh | sudo bash
 
+# i3
+sudo apt install i3
+sudo apt install i3blocks
+sudo apt install compton
+sudo apt install rofi
+sudo apt install feh
+sudo apt install arandr
+sudo apt install lxappearance
