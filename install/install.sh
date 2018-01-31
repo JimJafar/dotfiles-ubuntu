@@ -78,6 +78,13 @@ if [ ! -f ~/natural-scrolling.sh ]; then
   ln -s ~/dotfiles-ubuntu/scripts/natural-scrolling.sh ~/natural-scrolling.sh
 fi
 
+# screen layouts
+
+if [ -d ~/.screenlayout ]; then
+  mv ~/.screenlayout ~/.screenlayout.pre-dotfiles-bak
+fi
+ln -s ~/dotfiles-ubuntu/config/screenlayout ~/.screenlayout
+
 echo "changing default shell to zsh"
 sudo chsh -s /bin/zsh
 sudo chsh -s /bin/zsh jim

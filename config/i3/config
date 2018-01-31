@@ -197,7 +197,12 @@ bar {
 exec --no-startup-id compton -f
 
 # Set bg
-exec --no-startup-id feh --bg-scale Dropbox/images/Wallpaper/1080p/pixel_art/62902060-pixel-art-wallpapers.png
+exec --no-startup-id DISPLAY=:0.0 feh --bg-scale Dropbox/images/Wallpaper/1080p/pixel_art/62902060-pixel-art-wallpapers.png
+exec --no-startup-id DISPLAY=:0.1 feh --bg-scale Dropbox/images/Wallpaper/1080p/pixel_art/62902060-pixel-art-wallpapers.png
 
 # Set natural scrolling
 exec --no-startup-id sh ~/natural-scrolling.sh
+
+# Screen layouts
+bindsym $mod+Ctrl+Alt+1 exec --no-startup-id sh ~/.screenlayout/single-1080.sh
+bindsym $mod+Ctrl+Alt+2 exec --no-startup-id sh ~/.screenlayout/dual-1080.sh
