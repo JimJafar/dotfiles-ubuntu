@@ -43,17 +43,31 @@ focus_follows_mouse no
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec terminator
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
+# key-bindings
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+#bindsym $mod+e exec nautilus
+bindsym Print exec screenshot
+
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
+# start rofi
 bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 800 -bw 0 -color-window "$opaque-bg-color" "$bg-color" "$text-color" -font "System San Francisco Display 18"
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+# shipping a .desktop pfile. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
@@ -111,14 +125,14 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-set $workspace1 "1 "
+set $workspace1 "1 "
 set $workspace2 "2 "
-set $workspace3 "3 "
+set $workspace3 "3 "
 set $workspace4 "4 "
 set $workspace5 "5 "
 set $workspace6 "6 "
 set $workspace7 "7 "
-set $workspace8 "8 "
+set $workspace8 "8 "
 set $workspace9 "9 "
 set $workspace10 "10 "
 
@@ -145,6 +159,29 @@ bindsym $mod+7 workspace $workspace7
 bindsym $mod+8 workspace $workspace8
 bindsym $mod+9 workspace $workspace9
 bindsym $mod+0 workspace $workspace10
+
+# workspace default monitors
+workspace $workspace1 output HDMI-1
+workspace $workspace2 output HDMI-1
+workspace $workspace3 output HDMI-1
+workspace $workspace4 output HDMI-1
+workspace $workspace5 output HDMI-1
+workspace $workspace6 output HDMI-1
+workspace $workspace7 output eDP-1
+workspace $workspace8 output eDP-1
+workspace $workspace9 output eDP-1
+workspace $workspace10 output eDP-1
+
+# floating
+for_window [class="Skype"] floating enable
+
+# default workspaces
+assign [class="Google-chrome"] $workspace1
+assign [class="Mailspring"] $workspace8
+assign [class="Skype"] $workspace9
+assign [class="Franz"] $workspace9
+assign [class="Spotify"] $workspace10
+for_window [class="Spotify"] move to workspace $workspace10 # Spotify doesn't play nice
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -209,11 +246,11 @@ bar {
 exec --no-startup-id compton -f
 
 # Set bg
-exec --no-startup-id DISPLAY=:0.0 feh --bg-scale Dropbox/images/Wallpaper/1080p/pixel_art/62902060-pixel-art-wallpapers.png
-exec --no-startup-id DISPLAY=:0.1 feh --bg-scale Dropbox/images/Wallpaper/1080p/pixel_art/62902060-pixel-art-wallpapers.png
+exec_always --no-startup-id DISPLAY=:0.0 feh --bg-scale Dropbox/images/Wallpaper/1080p/pixel_art/62902060-pixel-art-wallpapers.png
+exec_always --no-startup-id DISPLAY=:0.1 feh --bg-scale Dropbox/images/Wallpaper/1080p/pixel_art/62902060-pixel-art-wallpapers.png
 
 # Set natural scrolling
-exec --no-startup-id naturalScrolling
+exec_always --no-startup-id sh /home/jim/dotfiles-ubuntu/scripts/natural-scrolling.sh
 
 # Screen layouts
 bindsym $mod+Ctrl+Shift+1 exec --no-startup-id sh ~/.screenlayout/single-1080.sh
@@ -221,3 +258,7 @@ bindsym $mod+Ctrl+Shift+2 exec --no-startup-id sh ~/.screenlayout/dual-1080.sh
 
 # start NetworkManager applet
 exec --no-startup-id nm-applet
+
+exec --no-startup-id spotify
+exec --no-startup-id franz
+exec --no-startup-id google-chrome

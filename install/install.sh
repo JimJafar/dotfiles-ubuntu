@@ -79,6 +79,13 @@ if [ -d ~/.screenlayout ]; then
 fi
 ln -s ~/dotfiles-ubuntu/config/screenlayout ~/.screenlayout
 
+# compton
+
+if [ -d ~/.compton.conf ]; then
+  mv ~/.compton.conf ~/.compton.conf.pre-dotfiles-bak
+fi
+ln -s ~/dotfiles-ubuntu/config/.compton.conf ~/.compton.conf
+
 echo "changing default shell to zsh"
 sudo chsh -s /bin/zsh
 sudo chsh -s /bin/zsh jim
