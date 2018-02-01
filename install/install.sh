@@ -72,12 +72,6 @@ if [ -f ~/.config/gtk-3.0/settings.ini ]; then
 fi
 ln -s ~/dotfiles-ubuntu/config/gtk-3.0/settings.ini ~/.config/gtk-3.0/
 
-# natural scrolling
-
-if [ ! -f ~/natural-scrolling.sh ]; then
-  ln -s ~/dotfiles-ubuntu/scripts/natural-scrolling.sh ~/natural-scrolling.sh
-fi
-
 # screen layouts
 
 if [ -d ~/.screenlayout ]; then

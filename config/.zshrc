@@ -108,6 +108,13 @@ alias c="tput reset"
 alias fixAltDirectionKeys="sudo kbd_mode -s"
 alias disconnectWiFi="nmcli d disconnect wlp2s0"
 alias pixeluvo="cd /home/jim/.local/share/Steam/steamapps/common/Pixeluvo/ && ./pixeluvo"
+alias screenSingle1080="sh ~/.screenlayout/single-1080.sh"
+alias screenDual1080="sh ~/.screenlayout/dual-1080.sh"
+alias naturalScrolling="sh ~/dotfiles-ubuntu/scripts/natural-scrolling.sh"
+alias vpnMXup="nmcli con up jim-mx-vpn"
+alias vpnMXdown="nmcli con down jim-mx-vpn"
+alias vpnSanup="nmcli con up sangwinenet"
+alias vpnSandown="nmcli con down sangwinenet"
 
 # BASH completion
 source /etc/bash_completion.d/climate_completion
