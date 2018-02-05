@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-icon="$HOME/dotfiles-ubuntu/img/i3-lock-icon-deathnote.png"
+#icon="$HOME/dotfiles-ubuntu/img/i3-lock-icon-deathnote.png"
+icon="$HOME/dotfiles-ubuntu/img/i3-lock-icon-homestuck-crew.png"
+
 tmpbg='/tmp/screen.png'
 
 (( $# )) && { icon=$1; }
