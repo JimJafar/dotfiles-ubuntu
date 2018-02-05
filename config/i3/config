@@ -175,8 +175,11 @@ workspace $workspace9 output eDP-1
 workspace $workspace10 output eDP-1
 
 # hide title bars
-for_window [class="^.*"] border pixel 1
-new_window 1pixel
+for_window [class="^.*"] border pixel 2
+new_window pixel 2
+
+# enable title bars for floating windows
+new_float normal 2
 
 # floating
 for_window [class="Skype"] floating enable
@@ -269,3 +272,5 @@ exec --no-startup-id nm-applet
 exec --no-startup-id spotify
 exec --no-startup-id franz
 exec --no-startup-id google-chrome
+
+exec --no-startup-id "ruby /home/jim/dotfiles-ubuntu/scripts/i3-floating-titles.rb"
