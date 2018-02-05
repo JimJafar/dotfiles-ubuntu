@@ -29,12 +29,14 @@ font pango: System San Francisco Display, FontAwesome 10
 
 # colours - taken from Arc Dark
 
-set $bg-color            #2f343f
-set $opaque-bg-color     argb:D82f343f
-set $inactive-bg-color   #2f343f
-set $text-color          #f3f4f5
-set $inactive-text-color #676E7D
-set $urgent-bg-color     #5294e2
+set $bg-color            #3B3633
+set $opaque-bg-color     argb:D849423E
+set $inactive-bg-color   #574F4A
+set $text-color          #BABABA
+set $inactive-text-color #9E9E9E
+set $urgent-bg-color     #FAA41A
+set $urgent-text-color   #3B3633
+set $highlight-color     #48B9C7
 
 # Disable mouse follow focus
 focus_follows_mouse no
@@ -64,7 +66,7 @@ bindsym Print exec screenshot
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
 # start rofi
-bindsym $mod+d exec "rofi -combi-modi run,drun -show combi -modi combi -lines 3 -eh 2 -width 100 -padding 800 -bw 0 -color-window '$opaque-bg-color' '$bg-color' '$text-color' -font 'System San Francisco Display 18'"
+bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -modi combi -lines 3 -eh 2 -width 100 -padding 800 -bw 0 -color-window '$opaque-bg-color' '$bg-color' '$text-color' -font 'System San Francisco Display 18'"
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop pfile. It is a wrapper around dmenu, so you need that
@@ -174,6 +176,7 @@ workspace $workspace10 output eDP-1
 
 # floating
 for_window [class="Skype"] floating enable
+for_window [class="Gpick"] floating enable
 
 # default workspaces
 assign [class="Google-chrome"] $workspace1
@@ -224,21 +227,21 @@ bindsym $mod+l exec "sh ~/lock-i3.sh"
 client.focused          $bg-color           $bg-color          $text-color          $urgent-bg-color
 client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color $urgent-bg-color
 client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color $urgent-bg-color
-client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $urgent-bg-color
+client.urgent           $urgent-bg-color    $urgent-bg-color   $urgent-text-color   $urgent-bg-color
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3blocks -c ~/.config/i3/i3blocks.conf
-        tray_output primary
-        position top
+  status_command i3blocks -c ~/.config/i3/i3blocks.conf
+  tray_output primary
+  position top
 	colors {
 		background $bg-color
 		separator #757575
 		#                  border             background         text
 		focused_workspace  $bg-color          $bg-color          $text-color
 		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $urgent-text-color
 	}
 }
 
