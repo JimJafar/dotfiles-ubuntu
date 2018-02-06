@@ -24,9 +24,9 @@ sudo apt-get update
 sudo apt-get install skypeforlinux -y
 
 # gpaste (clipboard manager)
-sudo apt install gpaste
-sudo apt install gnome-shell-extensions-gpaste
-sudo killall -3 gnome-shell # restart gnome-shell so the shell extension shows up in tweak tool
+# sudo apt install gpaste
+# sudo apt install gnome-shell-extensions-gpaste
+# sudo killall -3 gnome-shell # restart gnome-shell so the shell extension shows up in tweak tool
 
 # meld
 sudo apt install meld
@@ -35,21 +35,26 @@ sudo apt install meld
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
 
 # typora markdown editor
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE
-sudo add-apt-repository 'deb https://typora.io ./linux/'
-sudo apt-get update
-sudo apt-get install typora
+# sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE
+# sudo add-apt-repository 'deb https://typora.io ./linux/'
+# sudo apt-get update
+# sudo apt-get install typora
 
 # get rid of the irritating CTRL+SHIFT+U shortcut for entering unicode characters
-sudo -s
-echo -e '[desktop/gnome/interface]\nshow_unicode_menu=false' > /etc/dconf/db/ibus.d/01-remove-ctrl-shift-u
-dconf update
-exit
-killall ibus-engine-simple
-ibus-engine-simple
+# sudo -s
+# echo -e '[desktop/gnome/interface]\nshow_unicode_menu=false' > /etc/dconf/db/ibus.d/01-remove-ctrl-shift-u
+# dconf update
+# exit
+# killall ibus-engine-simple
+# ibus-engine-simple
 
 # Enable Ledger Nano S: http://support.ledgerwallet.com/knowledge_base/topics/ledger-wallet-is-not-recognized-on-linux
 wget -q -O - https://www.ledgerwallet.com/support/add_udev_rules.sh | sudo bash
+
+# zsh stuff
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
+git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
+ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 
 # FontAwesome
 sudo apt install fonts-font-awesome

@@ -20,6 +20,7 @@ if [ -f ~/.zshrc ]; then
   mv ~/.zshrc ~/.zshrc-pre-dotfiles-bak
 fi
 ln -s ~/dotfiles-ubuntu/config/.zshrc ~/.zshrc
+ln -s /home/jim/dotfiles-ubuntu/config/.zshrc /root/.zshrc
 
 echo "motd"
 
