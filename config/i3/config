@@ -273,5 +273,6 @@ exec --no-startup-id spotify
 exec --no-startup-id franz
 exec --no-startup-id google-chrome
 exec --no-startup-id mailspring
+exec --no-startup-id dropbox
 
 exec --no-startup-id "ruby /home/jim/dotfiles-ubuntu/scripts/i3-floating-titles.rb"
