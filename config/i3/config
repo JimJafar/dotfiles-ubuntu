@@ -188,7 +188,6 @@ for_window [class="Gpick"] floating enable
 # default workspaces
 assign [class="Google-chrome"] $workspace1
 assign [class="Skype"] $workspace8
-assign [class="Franz"] $workspace8
 assign [class="Mailspring"] $workspace9
 assign [class="Spotify"] $workspace10
 for_window [class="Spotify"] move to workspace $workspace10 # Spotify doesn't play nice
@@ -270,7 +269,6 @@ bindsym $mod+Ctrl+Shift+2 exec --no-startup-id sh ~/.screenlayout/dual-1080.sh
 exec --no-startup-id nm-applet
 
 exec --no-startup-id spotify
-exec --no-startup-id franz
 exec --no-startup-id google-chrome
 exec --no-startup-id mailspring
 exec --no-startup-id dropbox
